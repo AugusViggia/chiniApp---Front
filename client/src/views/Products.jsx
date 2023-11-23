@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Product from "../components/Product/Product";
 import { useGetProductsQuery } from "../firebase/services/firebaseApi";
 import Loading from "../components/Loading/Loading";
