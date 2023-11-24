@@ -6,6 +6,8 @@ import { emptyCart } from "../redux/slice/homeSlice";
 import Product from "../components/Product/Product";
 import axios from "axios";
 
+const apiURL = process.env.REACT_APP_API_URL;
+
 function Cart() {
     const cartList = useSelector((state) => state.homeSlice.cartList);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -41,7 +43,7 @@ function Cart() {
     const handlePayNow = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3002/create-order",
+                `${apiURL}/create-order`,
                 cartList
             );
             const initPoint = response.data.init_point;
