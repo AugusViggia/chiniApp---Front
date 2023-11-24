@@ -6,7 +6,8 @@ import { emptyCart } from "../redux/slice/homeSlice";
 import Product from "../components/Product/Product";
 import axios from "axios";
 
-const apiURL = process.env.REACT_APP_API_URL;
+// const apiURL = process.env.REACT_APP_API_URL;
+const apiURL = "https://chiniapp-api-production.up.railway.app"
 
 function Cart() {
     const cartList = useSelector((state) => state.homeSlice.cartList);
