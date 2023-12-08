@@ -8,7 +8,7 @@ import axios from "axios";
 import Modal from "react-modal";
 
 
-const apiURL = "https://chiniapp-api-production.up.railway.app"
+const apiURL = "https://chiniapp-api-production.up.railway.app";
 // const apiURL = "http://localhost:3002";
 
 function Cart() {
