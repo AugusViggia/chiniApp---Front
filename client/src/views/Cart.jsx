@@ -8,7 +8,7 @@ import axios from "axios";
 import Modal from "react-modal";
 
 
-const apiURL = "https://chiniapp-api-production.up.railway.app";
+const apiURL = "https://chiniapp-api-production.up.railway.app"
 // const apiURL = "http://localhost:3002";
 
 function Cart() {
@@ -60,6 +60,10 @@ function Cart() {
             const initPoint = response.data.init_point;
             console.log("esta es la response.data", response.data);
             window.location.href = initPoint;
+
+            axios.get(`${apiURL}/success`).then((response) => {
+                window.location.href = response.data.redirectUrl;
+            });
         } catch (error) {
             console.log("soy el error", error);
         }
