@@ -5,13 +5,17 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import { emptyCart } from "../redux/slice/homeSlice";
 import Product from "../components/Product/Product";
 import axios from "axios";
+import Modal from "react-modal";
 
 // const apiURL = process.env.REACT_APP_API_URL;
-const apiURL = "https://chiniapp-api-production.up.railway.app"
+// const apiURL = "https://chiniapp-api-production.up.railway.app"
+const apiURL = "http://localhost:3002";
 
 function Cart() {
     const cartList = useSelector((state) => state.homeSlice.cartList);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [clientInstagramUsername, setInstagramUsername] = useState("");
     
     const dispatch = useDispatch();
 
@@ -35,18 +39,24 @@ function Cart() {
                 },
                 {
                     label: "Yes",
-                    onClick: () => dispatch(emptyCart()), 
+                    onClick: () => {
+                        dispatch(emptyCart());
+                    }, 
                 },
             ],
         });
     };
 
     const handlePayNow = async () => {
+        setModalOpen(true);
+    };
+
+    const handleSubmitModal = async () => {
         try {
-            const response = await axios.post(
-                `${apiURL}/create-order`,
-                cartList
-            );
+            const response = await axios.post(`${apiURL}/create-order`, {
+                cartList,
+                clientInstagramUsername
+            });
             const initPoint = response.data.init_point;
             console.log("esta es la response.data", response.data);
             window.location.href = initPoint;
@@ -68,9 +78,24 @@ function Cart() {
 
             <button onClick={handleEmptyCart}>Empty Cart</button>
             <button onClick={handlePayNow}>Pay Now</button>
+
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={() => setModalOpen(false)}
+                contentLabel="Ingresar información"
+            >
+                <h2>Ingresa tu información</h2>
+                <label>Usuario de Instagram:</label>
+                <input
+                    type="text"
+                    value={clientInstagramUsername}
+                    onChange={(e) => setInstagramUsername(e.target.value)}
+                />
+                <br />
+                <button onClick={handleSubmitModal}>Continuar al pago</button>
+            </Modal>
         </div>
     );
-}
+};
 
 export default Cart;
-
