@@ -1,46 +1,45 @@
-import React from 'react'
-import { useNavigate } from 'react-router';
-import axios from "axios";
+// import React from 'react'
+// import { useNavigate } from 'react-router';
+// import { useEffect } from 'react';
+// import axios from "axios";
 
-const apiURL = "https://chiniapp-api-production.up.railway.app";
+// // const apiURL = "https://chiniapp-api-production.up.railway.app";
+// const apiURL = "http://localhost:3000";
 
-const Payment = () => {
-    const navigate = useNavigate();
+// const Payment = () => {
+//     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            // Simulación de lógica para verificar si el pago fue aprobado
-            const isPaymentApproved = true; // Puedes ajustar esto según tu lógica real
+//     useEffect(() => {
+//         const fetchData = async () => {
+//             // Simulación de lógica para verificar si el pago fue aprobado
+//             const isPaymentApproved = true; // Puedes ajustar esto según tu lógica real
 
-            if (isPaymentApproved) {
-                try {
-                    // Hacer una solicitud al servidor para ejecutar la lógica de successEvent
-                    const response = await axios.post(
-                        `${apiURL}/success`,
-                        data
-                    );
+//             if (isPaymentApproved) {
+//                 try {
+//                     // Hacer una solicitud al servidor para ejecutar la lógica de successEvent
+//                     const response = await axios.get(
+//                         `${apiURL}/success`,
+//                     );
 
-                    // Manejar la respuesta del servidor si es necesario
-                    console.log("Respuesta del servidor:", response.data);
+//                     console.log("soy la response del front de success: ", response);
 
-                    // Después, redirigir a /home
-                    navigate("/home");
-                } catch (error) {
-                    // Manejar errores si es necesario
-                    console.error("Error en la solicitud al servidor:", error);
-                }
-            }
-        };
+//                     navigate("/home");
+//                 } catch (error) {
+//                     // Manejar errores si es necesario
+//                     console.error("Error en la solicitud al servidor:", error);
+//                 }
+//             }
+//         };
 
-        fetchData();
-    }, []);
+//         fetchData();
+//     }, [navigate]);
 
-    return (
-        <div>
-            <h1>Procesando el pago...</h1>
-            {/* Puedes agregar más contenido según sea necesario */}
-        </div>
-    );
-};
+//     return (
+//         <div>
+//             <h1>Procesando el pago...</h1>
+//             {/* Puedes agregar más contenido según sea necesario */}
+//         </div>
+//     );
+// };
 
-export default Payment;
+// export default Payment;
