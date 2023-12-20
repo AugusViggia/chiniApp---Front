@@ -8,8 +8,8 @@ import axios from "axios";
 import Modal from "react-modal";
 
 
-const apiURL = "https://chiniapp-api-production.up.railway.app";
-// const apiURL = "http://localhost:3000";
+// const apiURL = "https://chiniapp-api-production.up.railway.app";
+const apiURL = "http://localhost:3000";
 
 function Cart() {
     const cartList = useSelector((state) => state.homeSlice.cartList);
@@ -55,7 +55,8 @@ function Cart() {
         try {
             const response = await axios.post(`${apiURL}/create-order`, {
                 cartList,
-                clientInstagramUsername
+                clientInstagramUsername,
+                totalPrice
             });
             const initPoint = response.data.init_point;
             console.log("esta es la response.data", response.data);
