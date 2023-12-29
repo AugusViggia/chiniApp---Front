@@ -1,4 +1,8 @@
-.spinner-container {
+* {
+    box-sizing: border-box;
+}
+
+.spinnerContainer {
     display: flex;
     align-items: center;
     justify-content: center;
