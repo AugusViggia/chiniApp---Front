@@ -1,50 +1,32 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import style from "./EmptyCartModal.module.css"; // Ajusta la ruta y el nombre del estilo según tu configuración
+// EmptyCartModal.js
+import React from "react";
+import Modal from "react-modal";
+import style from "./Modal.module.css";
 
-const CustomModal = ({ isOpen, onRequestClose, title, message, buttons }) => {
-  const [isLoading, setIsLoading] = useState(false);
+Modal.setAppElement("#root");
 
-  const handleButtonClick = async (button) => {
-    if (button.onClick) {
-      setIsLoading(true);
-      await button.onClick();
-      setIsLoading(false);
-      onRequestClose();
-    }
-  };
-
-  return (
-    <div className={`${style.modal} ${isOpen ? style.modalOpen : ""}`}>
-      <div className={style.modalContent}>
-        <h2 className={style.modalHeader}>{title}</h2>
-        <p className={style.modalText}>{message}</p>
-        {buttons.map((button, index) => (
-          <button
-            key={index}
-            onClick={() => handleButtonClick(button)}
-            className={style.modalBtn}
-            disabled={isLoading}
-          >
-            {button.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
+const EmptyCartModal = ({ isOpen, onCancel, onConfirm }) => {
+    return (
+        <Modal
+            isOpen={isOpen}
+            onRequestClose={onCancel}
+            contentLabel="Empty Cart"
+            className={style.modal}
+        >
+            <div className={style.modalContent}>
+                <h2 className={style.modalHeader}>Empty Cart</h2>
+                <p className={style.modalText}>
+                    Are you sure you want to empty your cart?
+                </p>
+                <button onClick={onCancel} className={style.modalBtn}>
+                    Cancel
+                </button>
+                <button onClick={onConfirm} className={style.modalBtn}>
+                    Yes
+                </button>
+            </div>
+        </Modal>
+    );
 };
 
-CustomModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onRequestClose: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
-  buttons: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      onClick: PropTypes.func,
-    })
-  ).isRequired,
-};
-
-export default CustomModal;
+export default EmptyCartModal;

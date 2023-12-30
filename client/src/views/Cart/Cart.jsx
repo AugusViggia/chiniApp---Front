@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Product from "../../components/Product/Product";
-import Modal from "react-modal";
 import Loading from "../../components/Loading/Loading";
 import { useHandlers } from "../../handlers/handlers";
-import { isValidInstagramUsername } from "../../validations/validations";
+import PaymentModal from "../../components/Modals/PaymentModal";
+import EmptyCartModal from "../../components/Modals/EmptyCartModal";
 import style from "./Cart.module.css";
 import { Link } from "react-router-dom";
-
-Modal.setAppElement("#root");
 
 function Cart() {
     const cartList = useSelector((state) => state.homeSlice.cartList);
@@ -22,8 +20,6 @@ function Cart() {
     const [reloadComponent, setReloadComponent] = useState(false);
     
     const {
-        handleSubmitModal,
-        handleInputChange,
         handleModalYes,
         handleModalCancel,
     } = useHandlers(
@@ -67,6 +63,7 @@ function Cart() {
               key={index}
               product={product}
               showAddToCartButton={false}
+              showViewCartButton={false}
             />
           ))}
         </div>
@@ -90,59 +87,25 @@ function Cart() {
           </button>
         </div>
 
-        <Modal
+        <EmptyCartModal
           isOpen={isModalEmptyOpen}
-          onRequestClose={() => setModalEmptyOpen(false)}
-          contentLabel="Empty Cart"
-          className={style.modal}
-        >
-          <div className={style.modalContent}>
-            <h2 className={style.modalHeader}>Empty Cart</h2>
-            <p className={style.modalText}>
-              Are you sure you want to empty your cart?
-            </p>
-            <button onClick={handleModalCancel} className={style.modalBtn}>
-              Cancel
-            </button>
-            <button onClick={handleModalYes} className={style.modalBtn}>
-              Yes
-            </button>
-          </div>
-        </Modal>
+          onCancel={handleModalCancel}
+          onConfirm={handleModalYes}
+        />
 
-        <Modal
+        <PaymentModal
           isOpen={isModalPaymentOpen}
-          onRequestClose={() => setModalPaymentOpen(false)}
-          contentLabel="Ingresar información"
-          className={style.modal}
-        >
-          <div className={style.modalContent}>
-            <h2 className={style.modalHeader}>Ingresa tu información</h2>
-            <label className={style.modalLabel}>Usuario de Instagram:</label>
-            <input
-              type="text"
-              value={clientInstagramUsername}
-              onChange={handleInputChange}
-              className={style.modalInput}
-            />
-            {touched && error && (
-              <span className={style.modalError}>{error}</span>
-            )}
-            <br />
-            <button
-              onClick={() =>
-                handleSubmitModal(cartList, clientInstagramUsername, totalPrice)
-              }
-              disabled={
-                touched &&
-                (!!error || !isValidInstagramUsername(clientInstagramUsername))
-              }
-              className={style.modalBtn}
-            >
-              Continuar al pago
-            </button>
-          </div>
-        </Modal>
+          onClose={() => setModalPaymentOpen(false)}
+          cartList={cartList}
+          totalPrice={totalPrice}
+          setModalOpen={setModalPaymentOpen}
+          setInstagramUsername={setInstagramUsername}
+          setTouched={setTouched}
+          setError={setError}
+          setIsLoading={setIsLoading}
+          setReloadComponent={setReloadComponent}
+          setModalEmptyOpen={setModalEmptyOpen}
+        />
       </div>
     );
 };

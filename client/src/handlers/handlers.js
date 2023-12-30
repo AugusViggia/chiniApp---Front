@@ -11,8 +11,8 @@ export const useHandlers = (
   setReloadComponent,
   setModalEmptyOpen
 ) => {
-  const apiURL = "https://chiniapp-api-production.up.railway.app";
-  // const apiURL = "http://localhost:3000";
+  // const apiURL = "https://chiniapp-api-production.up.railway.app";
+  const apiURL = "http://localhost:3000";
 
   const dispatch = useDispatch();
 

@@ -4,7 +4,7 @@ import { addToCart } from "../../redux/slice/homeSlice";
 import { Link } from "react-router-dom";
 import style from "./Product.module.css";
 
-const Product = ({ product, showAddToCartButton = true }) => {
+const Product = ({ product, showAddToCartButton = true, showViewCartButton = true }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -28,9 +28,11 @@ const Product = ({ product, showAddToCartButton = true }) => {
           Añadir al Carrito
         </button>
       )}
-      <Link to="/cart" className={style.viewCartLink}>
-        Ver Carrito
-      </Link>
+      {showViewCartButton && (
+        <Link to="/cart" className={style.viewCartLink}>
+          Ver Carrito
+        </Link>
+      )}
     </div>
   );
 };
