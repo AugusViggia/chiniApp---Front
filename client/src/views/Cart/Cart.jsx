@@ -13,9 +13,9 @@ function Cart() {
     const [totalPrice, setTotalPrice] = useState(0);
     const [isModalPaymentOpen, setModalPaymentOpen] = useState(false);
     const [isModalEmptyOpen, setModalEmptyOpen] = useState(false);
-    const [clientInstagramUsername, setInstagramUsername] = useState("");
-    const [touched, setTouched] = useState(false);
-    const [error, setError] = useState("");
+    const [setInstagramUsername] = useState("");
+    const [setTouched] = useState(false);
+    const [setError] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [reloadComponent, setReloadComponent] = useState(false);
     
