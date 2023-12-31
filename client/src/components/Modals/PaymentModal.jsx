@@ -18,6 +18,8 @@ const PaymentModal = ({
   const [touched, setTouchedLocal] = useState(false);
   const [error, setErrorLocal] = useState("");
 
+  console.log("soy el username de Ig",clientInstagramUsername);
+
   const {
     handleSubmitModal,
     handleInputChange,
@@ -53,7 +55,7 @@ const PaymentModal = ({
           disabled={
             !!error ||
               !isValidInstagramUsername(clientInstagramUsername) ||
-              clientInstagramUsername.trim() === ""
+              clientInstagramUsername === ""
           }
           className={style.modalBtn}
         >
