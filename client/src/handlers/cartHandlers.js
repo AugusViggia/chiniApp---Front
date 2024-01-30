@@ -7,8 +7,6 @@ export const useHandlers = (
   setInstagramUsername,
   setTouched,
   setError,
-  setIsLoading,
-  setReloadComponent,
   setModalEmptyOpen
 ) => {
   const apiURL = "https://chiniapp-api-production.up.railway.app";
@@ -51,8 +49,6 @@ export const useHandlers = (
   };
 
   const handleModalYes = () => {
-    setIsLoading(true);
-    setReloadComponent((prev) => !prev);
     dispatch(emptyCart());
 
     setModalEmptyOpen(false);

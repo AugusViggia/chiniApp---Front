@@ -1,33 +1,22 @@
-// PaymentModal.js
-// PaymentModal.js
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { useHandlers } from "../../handlers/handlers";
+import { useHandlers } from "../../handlers/cartHandlers";
 import style from "./Modal.module.css";
 import { isValidInstagramUsername } from "../../validations/validations";
 
 Modal.setAppElement("#root");
 
-const PaymentModal = ({
-  isOpen,
-  onClose,
-  cartList,
-  totalPrice,
-}) => {
+const PaymentModal = ({ isOpen, onClose, cartList, totalPrice }) => {
   const [clientInstagramUsername, setClientInstagramUsername] = useState("");
   const [touched, setTouchedLocal] = useState(false);
   const [error, setErrorLocal] = useState("");
 
-  console.log("soy el username de Ig",clientInstagramUsername);
+  console.log("soy el username de Ig", clientInstagramUsername);
 
-  const {
-    handleSubmitModal,
-    handleInputChange,
-
-  } = useHandlers(
+  const { handleSubmitModal, handleInputChange } = useHandlers(
     setClientInstagramUsername,
     setTouchedLocal,
-    setErrorLocal,
+    setErrorLocal
   );
 
   return (
@@ -54,8 +43,8 @@ const PaymentModal = ({
           }
           disabled={
             !!error ||
-              !isValidInstagramUsername(clientInstagramUsername) ||
-              clientInstagramUsername === ""
+            !isValidInstagramUsername(clientInstagramUsername) ||
+            clientInstagramUsername === ""
           }
           className={style.modalBtn}
         >
