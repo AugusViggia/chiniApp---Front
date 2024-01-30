@@ -35,7 +35,6 @@ function Cart() {
   return (
     <div className={style.mainContainer}>
       <h1>Carrito de Compras</h1>
-      <Link to="/products">Go Back</Link>
       <div className={style.productList}>
         {cartList.map((product, index) => (
           <Product
