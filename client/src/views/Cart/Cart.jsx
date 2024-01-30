@@ -5,7 +5,6 @@ import { useHandlers } from "../../handlers/cartHandlers";
 import PaymentModal from "../../components/Modals/PaymentModal";
 import EmptyCartModal from "../../components/Modals/EmptyCartModal";
 import style from "./Cart.module.css";
-import { Link } from "react-router-dom";
 
 function Cart() {
   const cartList = useSelector((state) => state.homeSlice.cartList);
