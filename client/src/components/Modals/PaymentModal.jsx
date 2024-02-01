@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { useHandlers } from "../../handlers/cartHandlers";
+import { useCartHandlers } from "../../handlers/cartHandlers";
 import style from "./Modal.module.css";
 import { isValidInstagramUsername } from "../../validations/validations";
 
@@ -13,7 +13,7 @@ const PaymentModal = ({ isOpen, onClose, cartList, totalPrice }) => {
 
   console.log("soy el username de Ig", clientInstagramUsername);
 
-  const { handleSubmitModal, handleInputChange } = useHandlers(
+  const { handleSubmitModal, handleInputChange } = useCartHandlers(
     setClientInstagramUsername,
     setTouchedLocal,
     setErrorLocal

@@ -3,7 +3,7 @@ import { emptyCart } from "../redux/slice/homeSlice";
 import axios from "axios";
 import { isValidInstagramUsername } from "../validations/validations";
 
-export const useHandlers = (
+export const useCartHandlers = (
   setInstagramUsername,
   setTouched,
   setError,

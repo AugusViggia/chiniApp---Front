@@ -1,4 +1,3 @@
-// EmptyCartModal.js
 import React from "react";
 import Modal from "react-modal";
 import style from "./Modal.module.css";

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Product from "../../components/Product/Product";
-import { useHandlers } from "../../handlers/cartHandlers";
+import { useCartHandlers } from "../../handlers/cartHandlers";
 import PaymentModal from "../../components/Modals/PaymentModal";
 import EmptyCartModal from "../../components/Modals/EmptyCartModal";
 import style from "./Cart.module.css";
@@ -15,7 +15,7 @@ function Cart() {
   const [setTouched] = useState(false);
   const [setError] = useState("");
 
-  const { handleModalYes, handleModalCancel } = useHandlers(
+  const { handleModalYes, handleModalCancel } = useCartHandlers(
     setInstagramUsername,
     setTouched,
     setError,

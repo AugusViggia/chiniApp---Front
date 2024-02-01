@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateQuantity, removeFromCart } from "../redux/slice/homeSlice";
 
-export const useHandlers = () => {
+export const useProductHandlers = (setModalEmptyOpen) => {
     const dispatch = useDispatch();
     const cartList = useSelector((state) => state.homeSlice.cartList);
-    
+
     const handleAddToCart = (product, quantity) => {
         const existingProductIndex = cartList.findIndex(
             (cartProduct) => cartProduct.id === product.id
@@ -65,6 +65,7 @@ export const useHandlers = () => {
 
     const handleDelete = (productId) => {
         dispatch(removeFromCart({ id: productId }));
+        setModalEmptyOpen(false);
     };
 
     return {

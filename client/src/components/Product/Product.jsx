@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useHandlers } from "../../handlers/productHandlers";
+import { useProductHandlers } from "../../handlers/productHandlers";
+import { useCartHandlers } from "../../handlers/cartHandlers";
+import DeleteProductModal from "../Modals/DeleteProductModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import style from "./Product.module.css";
@@ -14,6 +16,7 @@ const Product = ({
 }) => {
   
   const [quantity, setQuantity] = useState(1);
+  const [isModalEmptyOpen, setModalEmptyOpen] = useState(false);
 
   const {
     handleAddToCart,
@@ -22,7 +25,9 @@ const Product = ({
     handleIncrementCart,
     handleDecrementCart,
     handleDelete,
-  } = useHandlers();
+  } = useProductHandlers(setModalEmptyOpen);
+
+  const { handleModalCancel } = useCartHandlers(setModalEmptyOpen);
 
   const totalPrice = product.price * quantity;
   
@@ -59,8 +64,10 @@ const Product = ({
         <div className={style.quantityContainer}>
           <button
             onClick={() => {
-              handleDecrementDetail(product, quantity);
-              setQuantity((prevQuantity) => prevQuantity - 1);
+              if (quantity > 1) {
+                handleDecrementDetail(product, quantity);
+                setQuantity((prevQuantity) => prevQuantity - 1);
+              }
             }}
             className={style.quantityButton}
           >
@@ -96,12 +103,18 @@ const Product = ({
             </button>
           ) : (
             <button
-              onClick={() => handleDelete(product.id)}
+              onClick={() => setModalEmptyOpen(true)}
               className={style.deleteButton}
             >
               <FontAwesomeIcon icon={faTrash} />
             </button>
           )}
+
+          <DeleteProductModal
+            isOpen={isModalEmptyOpen}
+            onCancel={handleModalCancel}
+            onConfirm={() => handleDelete(product.id)}
+          />
 
           <span className={style.quantity}>{product.quantity}</span>
 
