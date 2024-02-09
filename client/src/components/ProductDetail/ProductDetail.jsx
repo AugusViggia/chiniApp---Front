@@ -4,7 +4,7 @@ import Product from "../Product/Product";
 import style from "./ProductDetail.module.css";
 
 const ProductDetail = () => {
-    const { product } = useLocation().state;
+    const { product } = useLocation().state || {};
 
     if (!product) {
         return <div>Product not found</div>;

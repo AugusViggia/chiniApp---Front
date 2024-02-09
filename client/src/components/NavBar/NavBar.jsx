@@ -13,14 +13,14 @@ const NavBar = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const showBackButton = location.pathname !== "/";
+  const showBackButton = location.pathname !== "/";
 
     return (
-      <nav className="navbar">
+      <nav className={style.navbar}>
         {showBackButton && (
-          <button className="backButton" onClick={() => navigate(-1)}>
+          <Link className={style.navLink} onClick={() => navigate(-1)}>
             <FontAwesomeIcon icon={faBackwardStep} />
-          </button>
+          </Link>
         )}
 
         <Link to="/products" className={style.navLink}>
@@ -31,7 +31,7 @@ const NavBar = () => {
           <FontAwesomeIcon icon={faHome} />
         </Link>
 
-        <Link to="/cart" className="viewCartLink">
+        <Link to="/cart" className={style.navLink}>
           <FontAwesomeIcon icon={faShoppingCart} />
         </Link>
       </nav>

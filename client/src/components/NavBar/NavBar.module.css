@@ -1,39 +1,24 @@
-/* Navbar.module.css */
+body {
+    margin-top: 1rem;
+}
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #333;
-    /* Color de fondo para el navbar */
-    color: white;
-    /* Color del texto en el navbar */
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.productLink,
-.viewCartLink {
-    text-decoration: none;
-    color: white;
-    /* Color del texto en los enlaces */
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-    /* Espacio entre los enlaces */
+.navLink{
+    color: black;
 }
 
-.viewCartLink {
-    /* Estilos adicionales para el enlace de Ver Carrito */
-    background-color: #007bff;
-    /* Color de fondo para el enlace de Ver Carrito */
-    padding: 5px 10px;
-    border-radius: 5px;
+.navLink:hover{
+    color: #0056b3;
 }
-
-.viewCartLink:hover {
-    /* Estilo al pasar el ratón sobre el enlace de Ver Carrito */
-    background-color: #0056b3;
-    /* Cambia el color de fondo al pasar el ratón */
-}
-
-/* Agrega estilos específicos según sea necesario */

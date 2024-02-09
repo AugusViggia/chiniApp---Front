@@ -1,7 +1,6 @@
 import Product from "../../components/Product/Product";
 import { useGetProductsQuery } from "../../firebase/services/firebaseApi";
 import style from "./Products.module.css";
-import { Link } from "react-router-dom";
 
 function Products({ showAddToCartButton }) {
   const { data } = useGetProductsQuery();
@@ -9,7 +8,6 @@ function Products({ showAddToCartButton }) {
 
   return (
     <div className={style.mainContainer}>
-      <Link to="/">Go Back</Link>
       <h1>Nuestros Productos</h1>
       <div className={style.productList}>
         {products.map((product) => (

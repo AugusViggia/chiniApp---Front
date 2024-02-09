@@ -49,44 +49,46 @@ const Product = ({
       <h3 className={style.productTitle}>{product.name}</h3>
       <p className={style.productDescription}>{product.description}</p>
       <p className={style.productPrice}>Precio: ${product.price}</p>
+      
+      <div className={style.secondaryContainer}>
+        {showQuantityDetail && (
+          <div className={style.quantityContainer}>
+            <button
+              onClick={() => {
+                if (quantity > 1) {
+                  handleDecrementDetail(product, quantity);
+                  setQuantity((prevQuantity) => prevQuantity - 1);
+                }
+              }}
+              className={style.quantityButton}
+            >
+              -
+            </button>
 
-      {showAddToCartButton && (
-        <Link
-          to="/products"
-          onClick={() => handleAddToCart(product, quantity, setQuantity(1))}
-          className={style.addToCartButton}
-        >
-          Añadir al Carrito ${totalPrice}
-        </Link>
-      )}
+            <span className={style.quantity}>{quantity}</span>
 
-      {showQuantityDetail && (
-        <div className={style.quantityContainer}>
-          <button
-            onClick={() => {
-              if (quantity > 1) {
-                handleDecrementDetail(product, quantity);
-                setQuantity((prevQuantity) => prevQuantity - 1);
-              }
-            }}
-            className={style.quantityButton}
+            <button
+              onClick={() => {
+                handleIncrementDetail(product, quantity);
+                setQuantity((prevQuantity) => prevQuantity + 1);
+              }}
+              className={style.quantityButton}
+            >
+              +
+            </button>
+          </div>
+        )}
+
+        {showAddToCartButton && (
+          <Link
+            to="/products"
+            onClick={() => handleAddToCart(product, quantity, setQuantity(1))}
+            className={style.addToCartButton}
           >
-            -
-          </button>
-
-          <span className={style.quantity}>{quantity}</span>
-
-          <button
-            onClick={() => {
-              handleIncrementDetail(product, quantity);
-              setQuantity((prevQuantity) => prevQuantity + 1);
-            }}
-            className={style.quantityButton}
-          >
-            +
-          </button>
-        </div>
-      )}
+            Añadir al Carrito ${totalPrice}
+          </Link>
+        )}
+      </div>
 
       {showQuantityCart && (
         <div className={style.quantityContainer}>
