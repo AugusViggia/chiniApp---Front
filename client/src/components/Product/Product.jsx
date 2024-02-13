@@ -39,16 +39,18 @@ const Product = ({
         className={style.productLink}
       >
         {product.images && product.images.length > 0 && (
-          <img
-            src={product.images[0]}
-            alt={product.name}
-            className={style.image}
-          />
+            <img
+              src={product.images[0]}
+              alt={product.name}
+              className={style.image}
+            />
         )}
       </Link>
-      <h3 className={style.productTitle}>{product.name}</h3>
-      <p className={style.productDescription}>{product.description}</p>
-      <p className={style.productPrice}>Precio: ${product.price}</p>
+      <div className={style.descriptionContainer}>
+        <h3 className={style.productTitle}>{product.name}</h3>
+        <p className={style.productDescription}>{product.description}</p>
+        <p className={style.productPrice}>Precio: ${product.price}</p>
+      </div>
       
       <div className={style.secondaryContainer}>
         {showQuantityDetail && (

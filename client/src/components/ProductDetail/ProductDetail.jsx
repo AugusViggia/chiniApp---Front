@@ -11,7 +11,7 @@ const ProductDetail = () => {
     }
 
     return (
-        <div className={style.mainContainer}>
+        <div className={`${style.mainContainer} ${style.productContainer}`}>
             <Product
                 product={product}
                 showQuantityDetail={true}
