@@ -12,9 +12,12 @@ const Product = ({
   showQuantityCart = false,
   inCart = false,
 }) => {
-  
   const [quantity, setQuantity] = useState(1);
   const [isModalEmptyOpen, setModalEmptyOpen] = useState(false);
+
+  if (quantity === undefined) {
+    console.log("quantity is undefined");
+  };
 
   const {
     handleIncrementCart,
