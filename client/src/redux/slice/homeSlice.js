@@ -10,8 +10,13 @@ const homeSlice = createSlice({
         setSetectedProduct: (state, action) => {
             state.selectedProduct = action.payload;
         },
+        getProductById: (state, action) => {
+            const product = state.allProducts.find(
+                (product) => product.id === action.payload
+            );
+            return product;
+        },
         addToCart: (state, action) => {
-            // Agregar el producto al carrito
             state.cartList.push(action.payload);
         },
         updateQuantity: (state, action) => {
@@ -37,6 +42,7 @@ const homeSlice = createSlice({
 
 export const {
     setSetectedProduct,
+    getProductById,
     addToCart,
     updateQuantity,
     removeFromCart,

@@ -76,6 +76,8 @@
     border-radius: 5px;
     font-size: 1rem;
     padding: 8px 12px;
+    width: 10vw;
+    height: 10vw;
     margin: 0 4px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
@@ -101,18 +103,18 @@
     background-color: #45a049;
 }
 
-.alert {
-    background-color: green;
-    color: white;
-    padding: 10px;
+.deleteButton{
+    background-color: #eeeeee;
+    color: red;
+    border: none;
     border-radius: 5px;
-    margin-top: 10px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.show {
-    opacity: 1;
+    width: 10vw;
+    height: 10vw;
+    font-size: 1rem;
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
 @media only screen and (max-width: 768px) {
@@ -120,6 +122,8 @@
         width: 90%;
         min-height: auto;
         max-width: none;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
     }
 
     .image {

@@ -9,27 +9,20 @@ import style from "./Product.module.css";
 
 const Product = ({
   product,
-  showQuantityDetail = false,
   showQuantityCart = false,
   inCart = false,
-  showAddToCartButton = false,
 }) => {
   
   const [quantity, setQuantity] = useState(1);
   const [isModalEmptyOpen, setModalEmptyOpen] = useState(false);
 
   const {
-    handleAddToCart,
-    handleIncrementDetail,
-    handleDecrementDetail,
     handleIncrementCart,
     handleDecrementCart,
     handleDelete,
   } = useProductHandlers(setModalEmptyOpen);
 
   const { handleModalCancel } = useCartHandlers(setModalEmptyOpen);
-
-  const totalPrice = product.price * quantity;
   
   return (
     <div className={style.mainContainer}>
@@ -50,46 +43,6 @@ const Product = ({
         <h3 className={style.productTitle}>{product.name}</h3>
         <p className={style.productDescription}>{product.description}</p>
         <p className={style.productPrice}>Precio: ${product.price}</p>
-      </div>
-      
-      <div className={style.secondaryContainer}>
-        {showQuantityDetail && (
-          <div className={style.quantityContainer}>
-            <button
-              onClick={() => {
-                if (quantity > 1) {
-                  handleDecrementDetail(product, quantity);
-                  setQuantity((prevQuantity) => prevQuantity - 1);
-                }
-              }}
-              className={style.quantityButton}
-            >
-              -
-            </button>
-
-            <span className={style.quantity}>{quantity}</span>
-
-            <button
-              onClick={() => {
-                handleIncrementDetail(product, quantity);
-                setQuantity((prevQuantity) => prevQuantity + 1);
-              }}
-              className={style.quantityButton}
-            >
-              +
-            </button>
-          </div>
-        )}
-
-        {showAddToCartButton && (
-          <Link
-            to="/products"
-            onClick={() => handleAddToCart(product, quantity, setQuantity(1))}
-            className={style.addToCartButton}
-          >
-            Añadir al Carrito ${totalPrice}
-          </Link>
-        )}
       </div>
 
       {showQuantityCart && (

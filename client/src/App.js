@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./views/Home/Home";
 import Products from "./views/Products/Products";
-import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Cart from "./views/Cart/Cart";
 import NavBar from "./components/NavBar/NavBar";
 import Loading from "./components/Loading/Loading";
+import Detail from "./components/Detail/Detail";
 import "./App.css";
 
 function App() {
@@ -13,16 +13,13 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    // Muestra el Loading
     setIsLoading(true);
 
-    // Simula una carga de 900ms (puedes ajustar este valor)
     const delayLoading = setTimeout(() => {
-      // Oculta el Loading después de la carga simulada
       setIsLoading(false);
     }, 900);
 
-    return () => clearTimeout(delayLoading); // Limpiar el temporizador en el desmontaje del componente
+    return () => clearTimeout(delayLoading);
   }, [location.pathname]);
   
   return (
@@ -32,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/detail/:id" element={<ProductDetail />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
