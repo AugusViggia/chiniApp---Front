@@ -1,12 +1,15 @@
-* {
-    box-sizing: border-box;
-}
-
 .mainContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    max-width: 100vw;
-    padding: 20px;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../../public/Portada.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.mainContainer h1 {
+    color: #101010;
 }
