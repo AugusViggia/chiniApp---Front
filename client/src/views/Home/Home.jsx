@@ -4,7 +4,10 @@ import style from "./Home.module.css";
 function Home() {
   return (
     <div className={style.mainContainer}>
-      <h1>Bienvenido</h1>
+      <div className={style.presentacion}>
+        <h1>ChiniBakery.</h1>
+      </div>
+      
     </div>
   );
 }
