@@ -7,7 +7,7 @@ export const useCartHandlers = (
   setInstagramUsername,
   setTouched,
   setError,
-  setModalEmptyOpen
+  setModalEmptyOpen,
 ) => {
   const apiURL = "https://chiniapp-api-production.up.railway.app";
   // const apiURL = "http://localhost:3000";

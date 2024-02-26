@@ -9,7 +9,7 @@ const DeleteProductModal = ({ isOpen, onCancel, onConfirm }) => {
       <Modal
         isOpen={isOpen}
         onRequestClose={onCancel}
-        contentLabel="Empty Cart"
+        contentLabel="Delete Product"
         className={style.modal}
       >
         <div className={style.modalContent}>

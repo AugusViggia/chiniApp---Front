@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useProductHandlers } from "../../handlers/productHandlers";
-import { useCartHandlers } from "../../handlers/cartHandlers";
 import DeleteProductModal from "../Modals/DeleteProductModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -23,10 +22,9 @@ const Product = ({
     handleIncrementCart,
     handleDecrementCart,
     handleDelete,
+    handleModalCancel
   } = useProductHandlers(setModalEmptyOpen);
 
-  const { handleModalCancel } = useCartHandlers(setModalEmptyOpen);
-  
   return (
     <div className={style.mainContainer}>
       <Link

@@ -68,6 +68,10 @@ export const useProductHandlers = (setModalEmptyOpen) => {
         setModalEmptyOpen(false);
     };
 
+    const handleModalCancel = () => {
+        setModalEmptyOpen(false);
+    };
+
     return {
         handleAddToCart,
         handleIncrementDetail,
@@ -75,5 +79,6 @@ export const useProductHandlers = (setModalEmptyOpen) => {
         handleIncrementCart,
         handleDecrementCart,
         handleDelete,
+        handleModalCancel,
     };
 };
