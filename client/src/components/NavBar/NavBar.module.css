@@ -5,16 +5,16 @@
     width: 40vw;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     padding: 10px 20px;
     z-index: 1000;
-    font-family: "Lexend", sans-serif;
+    display: none;
 }
 
 .cartBox {
     width: 40vw;
     display:flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding-right: 3vw;
 }
 
@@ -40,8 +40,8 @@
     color: #d9b767;
     font-weight: bold;
     font-size: 3rem;
-    display:flex;
-    justify-content: end;
+    display: flex;
+    justify-content: flex-end;
     padding-right:2.5vw ;
     margin-bottom: 5vh;
     transition: 0.5s;
