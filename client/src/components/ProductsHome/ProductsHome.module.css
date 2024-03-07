@@ -18,8 +18,7 @@
 
 .destacado1 {
     background-color: #b69443;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+
     margin: 1vw;
     border-radius: 40px;
     display: flex;
@@ -66,11 +65,11 @@
 
 .destacado2 {
     background-color: #b69443;
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
+
     margin: 1vw;
     border-radius: 40px;
     display: flex;
+    border: 2px solid;
 }
 
 .productImg2 {
@@ -84,8 +83,7 @@
 
 .destacado3 {
     background-color: #b69443;
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
+
     margin: 1vw;
     border-radius: 40px;
     display: flex;
@@ -93,8 +91,7 @@
 
 .destacado4 {
     background-color: #b69443;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
+
     margin: 1vw;
     border-radius: 40px;
     display: flex;
@@ -102,8 +99,7 @@
 
 .destacado5 {
     background-color: #b69443;
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+
     margin: 1vw;
     border-radius: 40px;
     display: flex;
@@ -111,8 +107,7 @@
 
 .destacado6 {
     background-color: #b69443;
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
+
     margin: 1vw;
     border-radius: 40px;
     display: flex;

@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       {isLoading && <Loading />}
-      <NavBar />
+      <NavBar/>
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/products" element={<Products />} />
