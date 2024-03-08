@@ -5,7 +5,6 @@ import Products from "./views/Products/Products";
 import Cart from "./views/Cart/Cart";
 import NavBar from "./components/NavBar/NavBar";
 import Loading from "./components/Loading/Loading";
-import Detail from "./views/ProductDetail/Detail";
 import "./App.css";
 
 function App() {
@@ -17,20 +16,21 @@ function App() {
 
     const delayLoading = setTimeout(() => {
       setIsLoading(false);
-    }, 900);
+    }, 1000);
 
     return () => clearTimeout(delayLoading);
   }, [location.pathname]);
   
   return (
     <div className="App">
+      <img src="/Portada.jpg" alt="fondo" className="background-image"></img>
+      
       {isLoading && <Loading />}
-      <NavBar/>
+      { location.pathname === "/products" && <NavBar/> }
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/products" element={<Products/>} />
+        <Route path="/cart" element={<Cart/>} />
       </Routes>
     </div>
   );
