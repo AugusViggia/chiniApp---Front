@@ -1,8 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
+import Cart from "../../views/Cart/Cart";
 
 import style from "./NavBarHome.module.css";
 import gsap from "gsap";
@@ -11,6 +13,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin( ScrollTrigger);
 
 const NavBarHome = () => {
+
+  const [modalIsOpen, setModalIsOpen ] = useState(false)
 
   const HomeRef = useRef(null)
   const CocinaRef = useRef(null)
@@ -63,14 +67,14 @@ const NavBarHome = () => {
   
     return (
       <nav className={style.navbar}>
-        
-        <Link to="/cart" className={style.navLink}>
-          <div className={style.cartBox}>
-            <div className={style.cart}>
-              <FontAwesomeIcon icon={faShoppingCart}/>
-            </div>
+
+        <Cart isOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)}/>
+
+        <div className={style.cartBox} onClick={() => setModalIsOpen(true)}>
+          <div className={style.cart}>
+            <FontAwesomeIcon icon={faShoppingCart}/>
           </div>
-        </Link>
+        </div>
 
         <Link to="/" className={style.navLink} ref={HomeRef}>
           <div className={style.btn} >HOME</div>

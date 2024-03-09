@@ -6,7 +6,7 @@ import PaymentModal from "../../components/Modals/PaymentModal";
 import EmptyCartModal from "../../components/Modals/EmptyCartModal";
 import style from "./Cart.module.css";
 
-function Cart() {
+function Cart({isOpen, closeModal}) {
   const cartList = useSelector((state) => state.homeSlice.cartList);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isModalPaymentOpen, setModalPaymentOpen] = useState(false);
@@ -32,39 +32,41 @@ function Cart() {
     setTotalPrice(totalSum);
   }, [cartList]);
 
+
+  if(!isOpen) return null;
   return (
     <div className={style.mainContainer}>
-      <h1>Carrito de Compras</h1>
+      <div className={style.buttonConteiner}>
+        <button onClick={() => closeModal()} className={style.closeCart}>-</button>
+      </div>
+      
+      <h1 className={style.miOrden}>Mi orden</h1>
       <div className={style.productList}>
         {cartList.map((product, index) => (
-          <Product
-            key={index}
-            product={product}
-            showAddToCartButton={false}
-            showViewCartButton={false}
-            showQuantityCart={true}
-            inCart={true}
-          />
+          <div className={style.ProductCart}> Producto </div>
         ))}
       </div>
 
-      <p className={style.totalPrice}>Total Price: ${totalPrice}</p>
+      <p className={style.totalPrice}>Total: ${totalPrice}</p>
 
       <div className={style.cartButtons}>
-        <button
-          onClick={() => setModalEmptyOpen(true)}
-          disabled={cartList.length === 0}
-          className={style.emptyCartBtn}
-        >
-          Empty Cart
-        </button>
+        
         <button
           onClick={() => setModalPaymentOpen(true)}
           disabled={cartList.length === 0}
           className={style.payNowBtn}
         >
-          Pay Now
+          Pagar
         </button>
+        
+        <button
+          onClick={() => setModalEmptyOpen(true)}
+          disabled={cartList.length === 0}
+          className={style.emptyCartBtn}
+        >
+          Limpiar carrito
+        </button>
+        
       </div>
 
       <EmptyCartModal

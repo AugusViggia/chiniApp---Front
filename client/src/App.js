@@ -30,7 +30,6 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/products" element={<Products/>} />
-        <Route path="/cart" element={<Cart/>} />
       </Routes>
     </div>
   );
