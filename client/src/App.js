@@ -7,6 +7,11 @@ import NavBar from "./components/NavBar/NavBar";
 import Loading from "./components/Loading/Loading";
 import "./App.css";
 
+// LAS NUEVAS VIEWS
+import LogIn from "./views/LogIn/LogIn"
+import Register from './views/Register/Register';
+import Profile from "./views/Profile/Profile";
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
@@ -24,12 +29,17 @@ function App() {
   return (
     <div className="App">
       <img src="/Portada.jpg" alt="fondo" className="background-image"></img>
-      
+
       {isLoading && <Loading />}
-      { location.pathname === "/products" && <NavBar/> }
+      {location.pathname === "/products" && <NavBar />}
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/products" element={<Products/>} />
+        <Route path="/products" element={<Products />} />
+
+
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

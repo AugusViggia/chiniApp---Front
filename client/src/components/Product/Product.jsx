@@ -1,27 +1,32 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { useProductHandlers } from "../../handlers/productHandlers";
 import style from "./Product.module.css";
 
 const Product = ({ product }) => {
+  const user = localStorage.getItem("userEmail");
+  console.log("soy el user: ", user);
 
-  const { 
-    handleAddToCart, 
-    handleIncrementDetail, 
-    handleDecrementDetail 
-  } = useProductHandlers()
+  const navigate = useNavigate();
+
+  const { handleAddToCart, handleIncrementDetail, handleDecrementDetail } =
+    useProductHandlers();
+
+  //PONER ARCHIVO userHandlers.js
+  const handleUser = () => {
+    if (user) {
+      handleAddToCart(product, quantity, () => setQuantity(1));
+    } else {
+      navigate("/login");
+    }
+  };
 
   const [quantity, setQuantity] = useState(1);
   const totalPrice = product.price * quantity;
 
   return (
     <div className={style.mainContainer}>
-
-
-
-
       <div className={style.productContainer}>
-
-
         <div className={style.imageConteiner}>
           {product.images && product.images.length > 0 && (
             <img
@@ -31,50 +36,51 @@ const Product = ({ product }) => {
             />
           )}
         </div>
-          
 
         <div className={style.dataConteiner}>
-
           <div className={style.descriptionContainer}>
-              <p className={style.productDescription}>{product.description}</p>
+            <p className={style.productDescription}>{product.description}</p>
           </div>
 
           <div className={style.secondaryContainer}>
-
             <div className={style.quantityContainer}>
-              <button onClick={() => {
-                if (quantity > 1) {
-                  handleDecrementDetail(product, quantity);
-                  setQuantity((prevQuantity) => prevQuantity - 1);
-                }
-              }} className={style.quantityButton}> - </button>
+              <button
+                onClick={() => {
+                  if (quantity > 1) {
+                    handleDecrementDetail(product, quantity);
+                    setQuantity((prevQuantity) => prevQuantity - 1);
+                  }
+                }}
+                className={style.quantityButton}
+              >
+                {" "}
+                -{" "}
+              </button>
               <span className={style.quantity}>{quantity}</span>
 
-              <button onClick={() => {
-                handleIncrementDetail(product, quantity);
-                setQuantity((prevQuantity) => prevQuantity + 1);
-              }} className={style.quantityButton}> + </button>
+              <button
+                onClick={() => {
+                  handleIncrementDetail(product, quantity);
+                  setQuantity((prevQuantity) => prevQuantity + 1);
+                }}
+                className={style.quantityButton}
+              >
+                {" "}
+                +{" "}
+              </button>
             </div>
 
-
             <button
-              onClick={() => handleAddToCart(product, quantity, setQuantity(1))}
-              className={style.addToCartButton}> 
+              onClick={handleUser}
+              className={style.addToCartButton}
+            >
               Añadir al Carrito ${totalPrice}
             </button>
-
           </div>
-
         </div>
-        
-
       </div>
-
-
-
-
     </div>
-    );
+  );
 };
 
 export default Product;
