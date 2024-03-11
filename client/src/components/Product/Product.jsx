@@ -6,13 +6,12 @@ import style from "./Product.module.css";
 const Product = ({ product }) => {
   const user = localStorage.getItem("userEmail");
   console.log("soy el user: ", user);
-
+  
   const navigate = useNavigate();
-
+  
   const { handleAddToCart, handleIncrementDetail, handleDecrementDetail } =
-    useProductHandlers();
-
-  //PONER ARCHIVO userHandlers.js
+  useProductHandlers();
+  
   const handleUser = () => {
     if (user) {
       handleAddToCart(product, quantity, () => setQuantity(1));
@@ -20,21 +19,21 @@ const Product = ({ product }) => {
       navigate("/login");
     }
   };
-
+  
   const [quantity, setQuantity] = useState(1);
   const totalPrice = product.price * quantity;
-
+  
   return (
     <div className={style.mainContainer}>
       <div className={style.productContainer}>
         <div className={style.imageConteiner}>
           {product.images && product.images.length > 0 && (
             <img
-              src={product.images[0]}
+            src={product.images[0]}
               alt={product.title}
               className={style.image}
-            />
-          )}
+              />
+              )}
         </div>
 
         <div className={style.dataConteiner}>
@@ -52,7 +51,7 @@ const Product = ({ product }) => {
                   }
                 }}
                 className={style.quantityButton}
-              >
+                >
                 {" "}
                 -{" "}
               </button>
@@ -64,7 +63,7 @@ const Product = ({ product }) => {
                   setQuantity((prevQuantity) => prevQuantity + 1);
                 }}
                 className={style.quantityButton}
-              >
+                >
                 {" "}
                 +{" "}
               </button>
@@ -73,7 +72,7 @@ const Product = ({ product }) => {
             <button
               onClick={handleUser}
               className={style.addToCartButton}
-            >
+              >
               Añadir al Carrito ${totalPrice}
             </button>
           </div>

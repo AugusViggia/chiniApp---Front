@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { useCartHandlers } from "../../handlers/cartHandlers";
 import style from "./Modal.module.css";
-import { isValidInstagramUsername } from "../../validations/validations";
+import { validations } from "../../validations/validations";
 
 Modal.setAppElement("#root");
 
@@ -18,6 +18,8 @@ const PaymentModal = ({ isOpen, onClose, cartList, totalPrice }) => {
     setTouchedLocal,
     setErrorLocal
   );
+
+  const { isValidInstagramUsername} = validations();
 
   return (
     <Modal

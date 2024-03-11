@@ -1,35 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { setUser } from "../../redux/slice/authSlice";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { firebase_auth } from "../../firebase/firebase";
-
+import { useUserHandlers } from "../../handlers/userHandlers";
 
 const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
-    // ARCHIVO userHandlers.js
-    const handleLogIn = async () => {
-        try {
-            const response = await signInWithEmailAndPassword(
-                firebase_auth,
-                email,
-                password
-            );
+    const { handleLogIn } = useUserHandlers();
 
-            console.log(response);
-
-            dispatch(setUser(response.user.email));
-            localStorage.setItem("userEmail", email);
-            navigate("/");
-        } catch (error) {
-            console.log("Error al iniciar sesion: ", error);
-        }
+    const handleSignIn = () => {
+        handleLogIn(email, password);
     };
     
     return (
@@ -53,7 +35,7 @@ const LogIn = () => {
                 />
             </div>
             <div>
-                <button onClick={handleLogIn}>Sign In</button>
+                <button onClick={handleSignIn}>Sign In</button>
                 <button onClick={() => navigate("/register")}>
                     You don't have an account? Register
                 </button>

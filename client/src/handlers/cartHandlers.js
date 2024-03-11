@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { emptyCart } from "../redux/slice/homeSlice";
 import axios from "axios";
-import { isValidInstagramUsername } from "../validations/validations";
+import { validations } from "../validations/validations";
 
 export const useCartHandlers = (
   setInstagramUsername,
@@ -13,6 +13,8 @@ export const useCartHandlers = (
   // const apiURL = "http://localhost:3000";
 
   const dispatch = useDispatch();
+
+  const { isValidInstagramUsername} = validations();
 
   const handleSubmitModal = async (
     cartList,
