@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import Product from "../../components/Product/Product";
 import { useCartHandlers } from "../../handlers/cartHandlers";
 import PaymentModal from "../../components/Modals/PaymentModal";
 import EmptyCartModal from "../../components/Modals/EmptyCartModal";
+import ProductCart from "../../components/ProductCart/ProductCart";
 import style from "./Cart.module.css";
 
 function Cart({isOpen, closeModal}) {
@@ -43,7 +43,7 @@ function Cart({isOpen, closeModal}) {
       <h1 className={style.miOrden}>Mi orden</h1>
       <div className={style.productList}>
         {cartList.map((product, index) => (
-          <div className={style.ProductCart}> Producto </div>
+          <ProductCart product={product}/>
         ))}
       </div>
 
