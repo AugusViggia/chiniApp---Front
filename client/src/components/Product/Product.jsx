@@ -9,8 +9,11 @@ const Product = ({ product }) => {
   
   const navigate = useNavigate();
   
-  const { handleAddToCart, handleIncrementDetail, handleDecrementDetail } =
-  useProductHandlers();
+  const { 
+    handleAddToCart, 
+    handleIncrementDetail, 
+    handleDecrementDetail 
+  } = useProductHandlers();
   
   const handleUser = () => {
     if (user) {
@@ -51,10 +54,8 @@ const Product = ({ product }) => {
                   }
                 }}
                 className={style.quantityButton}
-                >
-                {" "}
-                -{" "}
-              </button>
+                > - </button>
+
               <span className={style.quantity}>{quantity}</span>
 
               <button
@@ -63,10 +64,7 @@ const Product = ({ product }) => {
                   setQuantity((prevQuantity) => prevQuantity + 1);
                 }}
                 className={style.quantityButton}
-                >
-                {" "}
-                +{" "}
-              </button>
+                > + </button>
             </div>
 
             <button

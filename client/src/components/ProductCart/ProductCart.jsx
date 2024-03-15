@@ -7,10 +7,9 @@ const ProductCart = ({product}) => {
 
     const { 
         handleIncrementDetail, 
-        handleDecrementDetail 
+        handleDecrementDetail,
     } = useProductHandlers();
 
-    const [quantity, setQuantity] = useState(1);
 
   return (
     <div className={style.main}>

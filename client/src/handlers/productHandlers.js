@@ -1,9 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateQuantity, removeFromCart } from "../redux/slice/homeSlice";
+import { useState } from "react";
 
 export const useProductHandlers = (setModalEmptyOpen) => {
     const dispatch = useDispatch();
     const cartList = useSelector((state) => state.homeSlice.cartList);
+    
+    
+    const [ quantity, setQuantity ] = useState(1)
+
 
     const handleAddToCart = (product, quantity) => {
         const existingProductIndex = cartList.findIndex(
@@ -27,6 +32,8 @@ export const useProductHandlers = (setModalEmptyOpen) => {
         }
     };
 
+
+
     const handleIncrementDetail = (product, quantity) => {
         if (quantity < 100) {
             const newQuantity = quantity + 1;
@@ -35,6 +42,8 @@ export const useProductHandlers = (setModalEmptyOpen) => {
             );
         }
     };
+
+
 
     const handleDecrementDetail = (product, quantity) => {
         if (quantity > 1) {
@@ -45,6 +54,8 @@ export const useProductHandlers = (setModalEmptyOpen) => {
         }
     };
 
+
+
     const handleIncrementCart = (product) => {
         if (product.quantity < 100) {
             const newQuantity = product.quantity + 1;
@@ -53,6 +64,8 @@ export const useProductHandlers = (setModalEmptyOpen) => {
             );
         }
     };
+
+
 
     const handleDecrementCart = (product) => {
         if (product.quantity > 1) {
@@ -63,14 +76,20 @@ export const useProductHandlers = (setModalEmptyOpen) => {
         }
     };
 
+
+
     const handleDelete = (productId) => {
         dispatch(removeFromCart({ id: productId }));
         setModalEmptyOpen(false);
     };
 
+
+
     const handleModalCancel = () => {
         setModalEmptyOpen(false);
     };
+
+
 
     return {
         handleAddToCart,
