@@ -13,6 +13,8 @@ const ProductCart = ({product}) => {
     const { 
         handleIncrementDetail, 
         handleDecrementDetail,
+        handleModalCancel,
+        handleDelete
     } = useProductHandlers();
 
 

@@ -1,13 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateQuantity, removeFromCart } from "../redux/slice/homeSlice";
-import { useState } from "react";
 
 export const useProductHandlers = (setModalEmptyOpen) => {
     const dispatch = useDispatch();
     const cartList = useSelector((state) => state.homeSlice.cartList);
-    
-    
-    const [ quantity, setQuantity ] = useState(1)
 
 
     const handleAddToCart = (product, quantity) => {
