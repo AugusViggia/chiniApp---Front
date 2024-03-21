@@ -15,7 +15,7 @@ const ProductCart = ({product}) => {
         handleDecrementDetail,
         handleModalCancel,
         handleDelete
-    } = useProductHandlers();
+    } = useProductHandlers(setModalEmptyOpen);
 
 
   return (
