@@ -5,7 +5,7 @@ import style from "./Product.module.css";
 
 const Product = ({ product }) => {
   const user = localStorage.getItem("userEmail");
-  console.log("soy el user: ", user);
+  // console.log("soy el user: ", user);
   
   const navigate = useNavigate();
   

@@ -43,7 +43,7 @@ function Cart({isOpen, closeModal}) {
       <h1 className={style.miOrden}>Mi orden</h1>
       <div className={style.productList}>
         {cartList.map((product, index) => (
-          <ProductCart product={product}/>
+          <ProductCart product={product} key={index}/>
         ))}
       </div>
 

@@ -11,7 +11,7 @@ const PaymentModal = ({ isOpen, onClose, cartList, totalPrice }) => {
   const [touched, setTouchedLocal] = useState(false);
   const [error, setErrorLocal] = useState("");
 
-  console.log("soy el username de Ig", clientInstagramUsername);
+  // console.log("soy el username de Ig", clientInstagramUsername);
 
   const { handleSubmitModal, handleInputChange } = useCartHandlers(
     setClientInstagramUsername,
