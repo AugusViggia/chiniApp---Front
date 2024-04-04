@@ -5,17 +5,16 @@ import style from "./ProductCart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const ProductCart = ({product}) => {
-//   console.log(product)
+const ProductCart = ({ product }) => {
   const [isModalEmptyOpen, setModalEmptyOpen] = useState(false);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(product.quantity);
 
-    const { 
-        handleIncrementDetail, 
-        handleDecrementDetail,
-        handleModalCancel,
-        handleDelete
-    } = useProductHandlers(setModalEmptyOpen);
+  const {
+    handleIncrementDetail,
+    handleDecrementDetail,
+    handleModalCancel,
+    handleDelete
+  } = useProductHandlers(setModalEmptyOpen);
 
 
   return (
@@ -74,6 +73,6 @@ const ProductCart = ({product}) => {
       </div>
     </div>
   );
-}
+};
 
-export default ProductCart
+export default ProductCart;

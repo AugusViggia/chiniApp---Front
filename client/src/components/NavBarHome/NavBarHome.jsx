@@ -58,39 +58,32 @@ const NavBarHome = () => {
         x: -85, 
         y: -365,
       })
-
     }
-    
-    
   }, []);
 
   
     return (
       <nav className={style.navbar}>
 
-        <Cart isOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)}/>
+        <Cart isOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)} />
 
         <div className={style.cartBox} onClick={() => setModalIsOpen(true)}>
           <div className={style.cart}>
-            <FontAwesomeIcon icon={faShoppingCart}/>
+            <FontAwesomeIcon icon={faShoppingCart} />
           </div>
         </div>
 
         <Link to="/" className={style.navLink} ref={HomeRef}>
-          <div className={style.btn} >HOME</div>
+          <div className={style.btn}>HOME</div>
         </Link>
 
         <Link to="/products" className={style.navLink} ref={CocinaRef}>
-          <div className={style.btn} > COCINA </div>
+          <div className={style.btn}> COCINA </div>
         </Link>
 
         <Link to="/" className={style.navLink} ref={NosotrosRef}>
-          <div className={style.btn} > NOSOTROS </div>
-        </Link>        
-        
-        
-
-        
+          <div className={style.btn}> NOSOTROS </div>
+        </Link>
       </nav>
     );
 };

@@ -28,8 +28,6 @@ export const useProductHandlers = (setModalEmptyOpen) => {
         }
     };
 
-
-
     const handleIncrementDetail = (product, quantity) => {
         if (quantity < 100) {
             const newQuantity = quantity + 1;
@@ -38,8 +36,6 @@ export const useProductHandlers = (setModalEmptyOpen) => {
             );
         }
     };
-
-
 
     const handleDecrementDetail = (product, quantity) => {
         if (quantity > 1) {
@@ -50,8 +46,6 @@ export const useProductHandlers = (setModalEmptyOpen) => {
         }
     };
 
-
-
     const handleIncrementCart = (product) => {
         if (product.quantity < 100) {
             const newQuantity = product.quantity + 1;
@@ -60,8 +54,6 @@ export const useProductHandlers = (setModalEmptyOpen) => {
             );
         }
     };
-
-
 
     const handleDecrementCart = (product) => {
         if (product.quantity > 1) {
@@ -72,20 +64,14 @@ export const useProductHandlers = (setModalEmptyOpen) => {
         }
     };
 
-
-
     const handleDelete = (productId) => {
         dispatch(removeFromCart({ id: productId }));
         setModalEmptyOpen(false);
     };
 
-
-
     const handleModalCancel = () => {
         setModalEmptyOpen(false);
     };
-
-
 
     return {
         handleAddToCart,
