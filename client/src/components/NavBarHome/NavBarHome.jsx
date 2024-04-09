@@ -17,7 +17,7 @@ gsap.registerPlugin( ScrollTrigger);
 
 
 const NavBarHome = () => {
-  //const user = localStorage.getItem("userEmail");
+  const user = localStorage.getItem("userEmail");
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   //Nombres con los que voy a manipular los elementos del DOM
