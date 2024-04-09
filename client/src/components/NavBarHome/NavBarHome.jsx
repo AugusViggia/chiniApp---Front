@@ -90,7 +90,7 @@ const NavBarHome = () => {
         </Link>
       ) : (
         <Link to="/login" className={style.navLink} ref={NosotrosRef}>
-          <div className={style.btn}> Log In </div>
+          <div className={style.btn}> LOG IN </div>
         </Link>
       )}
     </nav>
