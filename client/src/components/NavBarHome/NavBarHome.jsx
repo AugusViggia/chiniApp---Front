@@ -33,6 +33,7 @@ const NavBarHome = () => {
         end: "bottom center",
         scrub: true,
       },
+      immediateRender: true,
       x: -1080, 
       y: -185,
       })

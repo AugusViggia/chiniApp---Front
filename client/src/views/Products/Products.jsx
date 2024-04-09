@@ -9,6 +9,8 @@ const Products = () => {
   const { data } = useGetProductsQuery();
   const products = data;
 
+  console.log(products)
+
   return (
       <div className={style.mainContainer}>
   
