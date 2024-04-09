@@ -5,7 +5,6 @@ import { useGetProductsQuery } from "../../firebase/services/firebaseApi";
 import style from "./Products.module.css";
 
 const Products = () => {
-
   const { data } = useGetProductsQuery();
   const products = data;
 

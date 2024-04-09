@@ -5,7 +5,6 @@ import style from "./Product.module.css";
 
 const Product = ({ product }) => {
   const user = localStorage.getItem("userEmail");
-  // console.log("soy el user: ", user);
   
   const navigate = useNavigate();
   
@@ -17,7 +16,8 @@ const Product = ({ product }) => {
   
   const handleUser = () => {
     if (user) {
-      handleAddToCart(product, quantity, () => setQuantity(1));
+      handleAddToCart(product, quantity);
+      setQuantity(1);
     } else {
       navigate("/login");
     }

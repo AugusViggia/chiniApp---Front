@@ -13,8 +13,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin( ScrollTrigger);
 
 const NavBarHome = () => {
-
-  const [modalIsOpen, setModalIsOpen ] = useState(false)
+  const user = localStorage.getItem("userEmail");
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const HomeRef = useRef(null)
   const CocinaRef = useRef(null)
@@ -24,7 +24,7 @@ const NavBarHome = () => {
 
     gsap.killTweensOf([HomeRef.current, CocinaRef.current, NosotrosRef.current]);
 
-    if (HomeRef.current && CocinaRef.current && NosotrosRef.current ) {
+    if (HomeRef.current && CocinaRef.current && NosotrosRef.current) {
       
       gsap.to(HomeRef.current, {
       scrollTrigger: {
@@ -33,7 +33,6 @@ const NavBarHome = () => {
         end: "bottom center",
         scrub: true,
       },
-      immediateRender: true,
       x: -1080, 
       y: -185,
       })
@@ -45,7 +44,7 @@ const NavBarHome = () => {
           end: "bottom center",
           scrub: true,
         },
-        x: -590, 
+        x: -590,
         y: -275,
       })
 
@@ -56,44 +55,46 @@ const NavBarHome = () => {
           end: "bottom center",
           scrub: true,
         },
-        x: -85, 
+        x: -85,
         y: -365,
       })
-
     }
-    
-    
   }, []);
 
   
-    return (
-      <nav className={style.navbar}>
+  return (
+    <nav className={style.navbar}>
+      <Cart isOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)} />
 
-        <Cart isOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)}/>
-
-        <div className={style.cartBox} onClick={() => setModalIsOpen(true)}>
-          <div className={style.cart}>
-            <FontAwesomeIcon icon={faShoppingCart}/>
-          </div>
+      <div className={style.cartBox} onClick={() => setModalIsOpen(true)}>
+        <div className={style.cart}>
+          <FontAwesomeIcon icon={faShoppingCart} />
         </div>
+      </div>
 
-        <Link to="/" className={style.navLink} ref={HomeRef}>
-          <div className={style.btn} >HOME</div>
+      <Link to="/" className={style.navLink} ref={HomeRef}>
+        <div className={style.btn}>HOME</div>
+      </Link>
+
+      <Link to="/products" className={style.navLink} ref={CocinaRef}>
+        <div className={style.btn}> COCINA </div>
+      </Link>
+
+      <Link to="/" className={style.navLink} ref={NosotrosRef}>
+        <div className={style.btn}> NOSOTROS </div>
+      </Link>
+
+      {user ? (
+        <Link to="/profile" className={style.navLink} ref={NosotrosRef}>
+          <div className={style.btn}> PERFIL </div>
         </Link>
-
-        <Link to="/products" className={style.navLink} ref={CocinaRef}>
-          <div className={style.btn} > COCINA </div>
+      ) : (
+        <Link to="/login" className={style.navLink} ref={NosotrosRef}>
+          <div className={style.btn}> Log In </div>
         </Link>
-
-        <Link to="/" className={style.navLink} ref={NosotrosRef}>
-          <div className={style.btn} > NOSOTROS </div>
-        </Link>        
-        
-        
-
-        
-      </nav>
-    );
+      )}
+    </nav>
+  );
 };
 
 export default NavBarHome;

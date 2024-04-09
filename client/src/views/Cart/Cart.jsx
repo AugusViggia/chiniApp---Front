@@ -90,6 +90,6 @@ function Cart({isOpen, closeModal}) {
       />
     </div>
   );
-}
+};
 
 export default Cart;
