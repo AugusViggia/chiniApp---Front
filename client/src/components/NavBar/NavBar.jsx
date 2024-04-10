@@ -13,6 +13,10 @@ import Cart from "../../views/Cart/Cart";
 const NavBar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+    const handleOpenCartModal = () => {
+      setIsCartOpen(true); // Abre el modal del carrito
+    };
+
   return (
     <nav className={style.navbar}>
       <Link to="/" className={style.navLink}>
@@ -27,7 +31,7 @@ const NavBar = () => {
         <div className={style.btn}> NOSOTROS </div>
       </Link>
 
-      <div className={style.cartBox} onClick={() => setIsCartOpen(true)}>
+      <div className={style.cartBox} onClick={handleOpenCartModal}>
         <div className={style.cart}>
           <FontAwesomeIcon icon={faShoppingCart} />
         </div>
