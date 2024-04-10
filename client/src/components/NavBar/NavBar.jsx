@@ -11,37 +11,32 @@ import Cart from "../../views/Cart/Cart";
 
 
 const NavBar = () => {
-  const [modalIsOpen, setModalIsOpen ] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
     <nav className={style.navbar}>
-
-
       <Link to="/" className={style.navLink}>
-        <div className={style.btn} >HOME</div>
+        <div className={style.btn}>HOME</div>
       </Link>
-
 
       <Link to="/products" className={style.navLink}>
-        <div className={style.btn} > COCINA </div>
+        <div className={style.btn}> COCINA </div>
       </Link>
 
-
       <Link to="/" className={style.navLink}>
-        <div className={style.btn} > NOSOTROS </div>
-      </Link>  
+        <div className={style.btn}> NOSOTROS </div>
+      </Link>
 
-
-        <div className={style.cartBox} onClick={() => setModalIsOpen(true)}>
-          <div className={style.cart}>
-            <FontAwesomeIcon icon={faShoppingCart}/>
-          </div>
+      <div className={style.cartBox} onClick={() => setIsCartOpen(true)}>
+        <div className={style.cart}>
+          <FontAwesomeIcon icon={faShoppingCart} />
         </div>
+      </div>
 
-        <Cart isOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)}/>
-
+      <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
     </nav>
   );
 };
+
 
 export default NavBar;
