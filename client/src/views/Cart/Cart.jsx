@@ -6,7 +6,7 @@ import EmptyCartModal from "../../components/Modals/EmptyCartModal";
 import ProductCart from "../../components/ProductCart/ProductCart";
 import style from "./Cart.module.css";
 
-function Cart({isOpen, closeModal}) {
+function Cart({ isCartOpen, setIsCartOpen }) {
   const cartList = useSelector((state) => state.homeSlice.cartList);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isModalPaymentOpen, setModalPaymentOpen] = useState(false);
@@ -19,7 +19,8 @@ function Cart({isOpen, closeModal}) {
     setInstagramUsername,
     setTouched,
     setError,
-    setModalEmptyOpen
+    setModalEmptyOpen,
+    setIsCartOpen
   );
 
   useEffect(() => {
@@ -32,25 +33,34 @@ function Cart({isOpen, closeModal}) {
     setTotalPrice(totalSum);
   }, [cartList]);
 
+  useEffect(() => {
+    if (cartList.length > 0) {
+      setIsCartOpen(true);
+    }
+  }, [cartList, setIsCartOpen]);
 
-  if(!isOpen) return null;
+  if (!isCartOpen) return null;
   return (
     <div className={style.mainContainer}>
       <div className={style.buttonConteiner}>
-        <button onClick={() => closeModal()} className={style.closeCart}>-</button>
+        <button
+          onClick={() => setIsCartOpen(false)}
+          className={style.closeCart}
+        >
+          -
+        </button>
       </div>
-      
+
       <h1 className={style.miOrden}>Mi orden</h1>
       <div className={style.productList}>
         {cartList.map((product, index) => (
-          <ProductCart product={product} key={index}/>
+          <ProductCart product={product} key={index} />
         ))}
       </div>
 
       <p className={style.totalPrice}>Total: ${totalPrice}</p>
 
       <div className={style.cartButtons}>
-        
         <button
           onClick={() => setModalPaymentOpen(true)}
           disabled={cartList.length === 0}
@@ -58,7 +68,7 @@ function Cart({isOpen, closeModal}) {
         >
           Pagar
         </button>
-        
+
         <button
           onClick={() => setModalEmptyOpen(true)}
           disabled={cartList.length === 0}
@@ -66,7 +76,6 @@ function Cart({isOpen, closeModal}) {
         >
           Limpiar carrito
         </button>
-        
       </div>
 
       <EmptyCartModal

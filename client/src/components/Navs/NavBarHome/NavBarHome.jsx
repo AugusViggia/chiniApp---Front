@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 //Dependencias de fontAwesome (icono para el carrito de compras)
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-//Importacion de componentes
-import Cart from "../../../views/Cart/Cart";
+//Importacion de componente Cart
+import Cart from "../../views/Cart/Cart";
 //Importacion de estilos
 import style from "./NavBarHome.module.css";
 //Dependencias de GSAP
@@ -17,7 +17,7 @@ gsap.registerPlugin( ScrollTrigger);
 
 
 const NavBarHome = () => {
-  const user = localStorage.getItem("userEmail");
+  //const user = localStorage.getItem("userEmail");
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   //Nombres con los que voy a manipular los elementos del DOM
@@ -25,32 +25,30 @@ const NavBarHome = () => {
   const CocinaRef = useRef(null)
   const NosotrosRef = useRef(null)
 
+
   const AnimacionGSAP = (RefName, x, y ) => {
   //AnimacionesGSAP recibe 3 paramentros:
   //primer parametro: Referencia al elemento del DOM que se va a animar
   //segundo parametro: valo del desplazamiento en el eje x
   //tercer parametro: valor de desplazamiento en el eje y
-    if (window.innerWidth > 860) {
-      gsap.to(RefName.current, {
-        scrollTrigger: {
-          trigger: RefName.current,
-          start: "top 0%",
-          end: "bottom center",
-          scrub: true,
-        },
-        x: x, 
-        y: y,
-      })
-    } else {
-      return null
-    }
+    gsap.to(RefName.current, {
+      scrollTrigger: {
+        trigger: RefName.current,
+        start: "top 0%",
+        end: "bottom center",
+        scrub: true,
+      },
+      x: x, 
+      y: y,
+    })
+
   }
 
   useEffect(() => {
       
     AnimacionGSAP(HomeRef, -1080, -185);
     AnimacionGSAP(CocinaRef, -590, -275);
-    AnimacionGSAP(NosotrosRef, -85, -365);
+    AnimacionGSAP(  NosotrosRef, -85, -365);
 
   }, []);
 
@@ -78,18 +76,20 @@ const NavBarHome = () => {
       </Link>
 
 
+
+
       {
       //Codigo Nuevo (no funciona)
 
-      user ? (
+      /*user ? (
         <Link to="/profile" className={style.navLink}>
           <div className={style.btn}> PERFIL </div>
         </Link>
       ) : (
         <Link to="/login" className={style.navLink}>
-          <div className={style.btn}> LOGIN </div>
+          <div className={style.btn}> Log In </div>
         </Link>
-      )}
+      )*/}
 
       
     </nav>

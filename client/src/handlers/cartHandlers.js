@@ -8,13 +8,14 @@ export const useCartHandlers = (
   setTouched,
   setError,
   setModalEmptyOpen,
+  setIsCartOpen
 ) => {
   const apiURL = "https://chiniapp-api-production.up.railway.app";
   // const apiURL = "http://localhost:3000";
 
   const dispatch = useDispatch();
 
-  const { isValidInstagramUsername} = validations();
+  const { isValidInstagramUsername } = validations();
 
   const handleSubmitModal = async (
     cartList,
@@ -54,6 +55,7 @@ export const useCartHandlers = (
     dispatch(emptyCart());
 
     setModalEmptyOpen(false);
+    setIsCartOpen(false)
   };
 
   return {
