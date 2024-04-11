@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./views/Home/Home";
 import Products from "./views/Products/Products";
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./components/Navs/NavBar/NavBar";
 import Loading from "./components/Loading/Loading";
 import "./App.css";
 

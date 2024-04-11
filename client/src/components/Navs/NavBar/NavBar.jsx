@@ -6,7 +6,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import style from "./NavBar.module.css";
 
-import Cart from "../../views/Cart/Cart";
+import Cart from "../../../views/Cart/Cart";
 
 
 

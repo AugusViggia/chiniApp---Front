@@ -34,3 +34,30 @@
     font-size: 1.5rem;
     text-shadow: 3px 1px 20px black;
 }
+
+@media screen and (max-width: 860px) {
+
+    .presentacion h1 {
+        font-size: 3rem;
+    }
+
+    .presentacion h2 {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .presentacion {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .presentacion h1 {
+        font-size: 2rem;
+    }
+
+    .presentacion h2 {
+        font-size: 0.5rem;
+    }
+}

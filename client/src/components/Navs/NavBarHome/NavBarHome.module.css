@@ -59,3 +59,16 @@
     transition: .5s;
 }
 
+
+@media screen and (max-width: 860px) {
+    .btn {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .navbar {
+        display: none;
+    }
+}
+

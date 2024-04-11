@@ -1,0 +1,14 @@
+.navMovile {
+    position: fixed;
+    display: none;
+}
+
+.contenido {
+    display: none;
+}
+
+@media screen and (max-width: 760px) {
+    .navMovile{
+        display: flex;
+    }
+}
