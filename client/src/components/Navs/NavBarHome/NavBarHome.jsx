@@ -55,7 +55,7 @@ const NavBarHome = () => {
   
   return (
     <nav className={style.navbar}>
-      <Cart isOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)} />
+      <Cart isCartOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)} />
 
       <div className={style.cartBox} onClick={() => setModalIsOpen(true)}>
         <div className={style.cart}>

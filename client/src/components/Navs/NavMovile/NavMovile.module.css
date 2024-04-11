@@ -7,17 +7,45 @@
     z-index: 99;
 }
 
+.navOpen {
+    display: none;
+}
+
+.nav {
+    height: 15vh;
+    width: 100vw;
+    margin-top: 3.5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .btn {
     color: #d9b767;
     font-weight: bold;
     font-size: 2.5rem;
     display: flex;
     justify-content: flex-end;
-    margin-top: 3.5vh;
+    margin-left: 6vw;
 }
 
-.btnClear {
-    display: none;
+.cartBox {
+    width: 40vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+}
+
+.cart {
+    border: 3px solid #d9b767;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
 }
 
 .contenido {
