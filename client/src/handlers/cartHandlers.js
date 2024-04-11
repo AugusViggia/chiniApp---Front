@@ -106,7 +106,7 @@ export const useCartHandlers = (
 
 
 
-  //Devuelve todas los handlers para poder utilizarlos en componentes React
+  //Devuelve todos los handlers para poder utilizarlos en componentes React
   return {
     handleSubmitModal,
     handleInputChange,
