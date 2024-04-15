@@ -7,7 +7,10 @@ import ProductCart from "../../components/ProductCart/ProductCart";
 import style from "./Cart.module.css";
 
 function Cart({ isCartOpen, setIsCartOpen }) {
+  
   const cartList = useSelector((state) => state.homeSlice.cartList);
+
+  //Estados locales
   const [totalPrice, setTotalPrice] = useState(0);
   const [isModalPaymentOpen, setModalPaymentOpen] = useState(false);
   const [isModalEmptyOpen, setModalEmptyOpen] = useState(false);
@@ -15,6 +18,7 @@ function Cart({ isCartOpen, setIsCartOpen }) {
   const [setTouched] = useState(false);
   const [setError] = useState("");
 
+  // Destructuring de funciones dentro de useCartHandlers
   const { handleModalYes, handleModalCancel } = useCartHandlers(
     setInstagramUsername,
     setTouched,
