@@ -1,6 +1,6 @@
 .MainConteiner {
     height: 100vh;
-    width: 98.7vw;
+    width: 100%;
     background-color: #010101;
     display: flex;
     justify-content: center;
@@ -110,4 +110,39 @@
     margin: 1vw;
     border-radius: 40px;
     display: flex;
+}
+
+
+
+@media screen and (max-width: 860px) {
+
+}
+
+
+
+@media screen and (max-width: 760px) {
+    
+}
+
+
+
+@media screen and (max-width: 375px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 33.33% 33.33% 33.33%;
+    }
+
+    .productImg1 {
+        width: 100%;
+        object-position: center;
+    }
+
+    .productImg2 {
+        width: 100%;
+        object-position: center;
+    }
+
+    .productDetail1{
+        position: fixed
+    } 
 }

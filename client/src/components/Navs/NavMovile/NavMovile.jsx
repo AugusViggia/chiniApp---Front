@@ -16,7 +16,7 @@ const NavMovile = () => {
   return (
     <div className={style.navMovile}>
 
-      <Cart isCartOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)} />
+      <Cart isCartOpen={modalIsOpen} setIsCartOpen={() => setModalIsOpen(false)} />
 
       <div className={isOpen ? `${style.navOpen}`: `${style.nav}`}>
         

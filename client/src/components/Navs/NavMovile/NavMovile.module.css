@@ -1,6 +1,6 @@
 .navMovile {
     position: fixed;
-    width: 100%;
+    width: 100vw;
     display: none;
     align-items: center;
     justify-content: center;

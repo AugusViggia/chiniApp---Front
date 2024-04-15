@@ -1,6 +1,6 @@
 .mainContainer {
     height: 100vh;
-    width: 98.7vw;
+    width: 100%;
     background-image: url("../../../public/Portada.jpg");
     background-position: center;
     background-size: cover;
