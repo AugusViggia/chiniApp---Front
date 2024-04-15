@@ -121,7 +121,24 @@
 
 
 @media screen and (max-width: 760px) {
-    
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 33.33% 33.33% 33.33%;
+    }
+
+    .productImg1 {
+        width: 100%;
+        object-position: center;
+    }
+
+    .productImg2 {
+        width: 100%;
+        object-position: center;
+    }
+
+    .productDetail1{
+        position: fixed
+    } 
 }
 
 
