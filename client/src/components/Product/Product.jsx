@@ -28,7 +28,9 @@ const Product = ({ product }) => {
   
   return (
     <div className={style.mainContainer}>
+      
       <div className={style.productContainer}>
+
         <div className={style.imageConteiner}>
           {product.images && product.images.length > 0 && (
             <img

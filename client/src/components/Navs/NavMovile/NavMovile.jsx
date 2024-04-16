@@ -11,7 +11,6 @@ const NavMovile = () => {
 
   const [ isOpen, setIsOpen ] = useState(false)
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  console.log(modalIsOpen)
 
   return (
     <div className={style.navMovile}>

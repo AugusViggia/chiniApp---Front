@@ -3,6 +3,7 @@ import style from "./Filtros.module.css"
 
 const Filtros = () => {
   return (
+    
     <div className={style.filtros}>
         <span className={style.filtrosBtn}>Todo</span>
         <span className={style.filtrosBtn}>Panaderia</span>

@@ -8,6 +8,10 @@
     font-size: 1.2rem;
 }
 
+.filtrosNull {
+    display: none;
+}
+
 .filtrosBtn {
     border-radius: 20px;
     width: 12%;
@@ -24,4 +28,18 @@
     transition: 0.2s;
     background-color: #b69443;
     color: #010101;
+}
+
+@media screen and (max-width: 760px) {
+    .filtros {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 50% 50%;
+        font-size: 0.8rem;
+        margin-top: 20vh;
+    }
+
+    .filtrosBtn {
+        width: 90%;
+    }
 }

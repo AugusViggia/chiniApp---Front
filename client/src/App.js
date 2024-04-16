@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./views/Home/Home";
 import Products from "./views/Products/Products";
-import NavBar from "./components/Navs/NavBar/NavBar";
 import Loading from "./components/Loading/Loading";
 import "./App.css";
 
@@ -30,7 +29,6 @@ function App() {
       <img src="/Portada.jpg" alt="fondo" className="background-image"></img>
 
       {isLoading && <Loading />}
-      {location.pathname === "/products" && <NavBar />}
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/products" element={<Products />} />
