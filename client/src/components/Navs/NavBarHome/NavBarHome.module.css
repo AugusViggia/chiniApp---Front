@@ -9,6 +9,7 @@
     padding: 10px 20px;
     z-index: 1000;
     /*display: none;*/
+    border: 2px solid red;
 }
 
 .cartBox {
@@ -39,7 +40,7 @@
 
 .btn {
     color: #d9b767;
-    font-weight: bold;
+    font-weight:bold;
     font-size: 3rem;
     display: flex;
     justify-content: flex-end;
