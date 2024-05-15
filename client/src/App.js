@@ -40,7 +40,7 @@ function App() {
       <img src="/Portada.jpg" alt="fondo" className="background-image"></img>
 
       {isLoading && <Loading/>}
-      <Routes>
+      <Routes> 
         <Route path="/" exact element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/profile" element={<Profile />} />
