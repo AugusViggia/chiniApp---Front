@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useUserHandlers } from "../../handlers/userHandlers";
+import styles from "./LogIn.module.css";
 
 const LogIn = () => {
     const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ const LogIn = () => {
     };
     
     return (
-        <div>
+        <div className={styles.logInContainer}>
             <div>
                 <h3>Log In</h3>
             </div>

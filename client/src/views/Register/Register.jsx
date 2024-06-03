@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useUserHandlers } from "../../handlers/userHandlers";
+import styles from "./Register.module.css";
 
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -25,53 +26,59 @@ const Register = () => {
     };
     
     return (
-        <div>
-            <h2>Registro</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Correo electrónico:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        />
-                    {emailError && <p>{emailError}</p>}
-                </div>
-                <div>
-                    <label htmlFor="username">Nombre de usuario:</label>
-                    <input
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                    {usernameError && <p>{usernameError}</p>}
-                </div>
-                <div>
-                    <label htmlFor="password">Contraseña:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        />
-                    {passwordError && <p>{passwordError}</p>}
-                </div>
-                <div>
-                    <label htmlFor="confirmPassword">Confirmar Contraseña:</label>
-                    <input
-                        type="password"
-                        id="confirmPassword"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        />
-                </div>
-                <button type="submit">Registrarse</button>
-                <Link to="/login">¿Ya tienes una cuenta? Inicia sesión</Link>
-            </form>
-            {registrationError && <p>{registrationError}</p>}
-        </div>
+      <div className={styles.container}>
+        <h2 className={styles.title}>Registrate</h2>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.field}>
+            <label htmlFor="email">Correo electrónico:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={styles.input}
+            />
+            {emailError && <p>{emailError}</p>}
+          </div>
+          <div className={styles.field}>
+            <label htmlFor="username">Nombre de usuario:</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className={styles.input}
+            />
+            {usernameError && <p>{usernameError}</p>}
+          </div>
+          <div className={styles.field}>
+            <label htmlFor="password">Contraseña:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={styles.input}
+            />
+            {passwordError && <p>{passwordError}</p>}
+          </div>
+          <div className={styles.field}>
+            <label htmlFor="confirmPassword">Confirmar Contraseña:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className={styles.input}
+            />
+          </div>
+          <button type="submit" className={styles.button}>Registrarse</button>
+          <Link to="/login" className={styles.link}>
+            ¿Ya tienes una cuenta? Inicia sesión
+          </Link>
+        </form>
+        {registrationError && <p>{registrationError}</p>}
+      </div>
     );
 };
 

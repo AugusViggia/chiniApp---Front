@@ -8,8 +8,6 @@
     align-items: flex-end;
     padding: 10px 20px;
     z-index: 1000;
-    /*display: none;*/
-    border: 2px solid red;
 }
 
 .cartBox {
