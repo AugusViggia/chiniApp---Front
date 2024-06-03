@@ -27,7 +27,6 @@ const Product = ({ product }) => {
   const totalPrice = product.price * quantity;
   
   return (
-    <div className={style.mainContainer}>
       
       <div className={style.productContainer}>
 
@@ -78,7 +77,6 @@ const Product = ({ product }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

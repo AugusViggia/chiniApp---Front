@@ -12,6 +12,7 @@
     height: 45vh;
     border-radius: 80px;
     background-color: #b69443;
+    border: red solid 4px;
 }
 
 .imageConteiner {
@@ -103,14 +104,16 @@
 @media screen and (max-width: 760px) {
     .mainContainer {
         height: 20vh;
+        border: red solid 4px;
     }
 
     .productContainer{
         width: 95vw;
-        height: 20vh;
+        height: 22vh;
         justify-content: center;
         border-radius: 35px;
         margin-bottom: 5vh;
+        border: red solid 4px;
     }
 
     .imageConteiner {
@@ -133,6 +136,7 @@
         flex-direction: column;
         justify-content: space-between;
         border-radius: 35px;
+        border: red solid 4px;
     }
 
     .productDescription {

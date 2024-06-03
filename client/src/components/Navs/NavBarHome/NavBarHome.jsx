@@ -17,7 +17,7 @@ gsap.registerPlugin( ScrollTrigger);
 
 
 const NavBarHome = () => {
-  //const user = localStorage.getItem("userEmail");
+  const user = localStorage.getItem("userEmail");
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   //Nombres con los que voy a manipular los elementos del DOM
@@ -55,7 +55,10 @@ const NavBarHome = () => {
   
   return (
     <nav className={style.navbar}>
-      <Cart isCartOpen={modalIsOpen} setIsCartOpen={() => setModalIsOpen(false)} />
+      <Cart
+        isCartOpen={modalIsOpen}
+        setIsCartOpen={() => setModalIsOpen(false)}
+      />
 
       <div className={style.cartBox} onClick={() => setModalIsOpen(true)}>
         <div className={style.cart}>
@@ -75,23 +78,15 @@ const NavBarHome = () => {
         <div className={style.btn}> NOSOTROS </div>
       </Link>
 
-
-
-
-      {
-      //Codigo Nuevo (no funciona)
-
-      /*user ? (
+      {user ? (
         <Link to="/profile" className={style.navLink}>
           <div className={style.btn}> PERFIL </div>
         </Link>
       ) : (
-        <Link to="/login" className={style.navLink}>
-          <div className={style.btn}> Log In </div>
+        <Link to="/login" className={style.navLink} ref={NosotrosRef}>
+          <div className={style.btn}> LOG IN </div>
         </Link>
-      )*/}
-
-      
+      )}
     </nav>
   );
 };
