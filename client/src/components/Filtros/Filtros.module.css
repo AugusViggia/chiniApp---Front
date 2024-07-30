@@ -6,6 +6,7 @@
     justify-content: space-around;
     align-items: center;
     font-size: 1.2rem;
+    flex-wrap: wrap;
 }
 
 .filtrosNull {
@@ -20,12 +21,17 @@
     justify-content: center;
     align-items: center;
     border: 3px solid #b69443;
-    transition: 0.2s;
+    transition: background-color 0.2s, color 0.2s;
     cursor: pointer;
+    margin: 5px;
 }
 
 .filtrosBtn:hover {
-    transition: 0.2s;
+    background-color: #b69443;
+    color: #010101;
+}
+
+.filtrosBtn.activo {
     background-color: #b69443;
     color: #010101;
 }
@@ -34,12 +40,13 @@
     .filtros {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 50% 50%;
-        font-size: 0.8rem;
-        margin-top: 20vh;
+        grid-template-rows: auto;
+        gap: 10px;
+        height: auto;
     }
 
     .filtrosBtn {
-        width: 90%;
+        width: 100%;
+        height: auto;
     }
 }

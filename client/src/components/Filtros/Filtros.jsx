@@ -1,18 +1,36 @@
-import React from 'react'
-import style from "./Filtros.module.css"
+import React, { useState } from "react";
+import style from "./Filtros.module.css";
 
-const Filtros = () => {
+const Filtros = ({ setFiltroActivo }) => {
+  // Paso 1: Definir el estado para el filtro activo
+  const [filtroActivoLocal, setFiltroActivoLocal] = useState("Todo");
+
+  // Paso 2: Manejar el cambio de filtro
+  const cambiarFiltro = (filtro) => {
+    setFiltroActivoLocal(filtro);
+    setFiltroActivo(filtro);
+  };
+
+  // Paso 3: Aplicar clase activa al filtro seleccionado
+  const obtenerClaseFiltro = (filtro) => {
+    return filtro === filtroActivoLocal
+      ? `${style.filtrosBtn} ${style.activo}`
+      : style.filtrosBtn;
+  };
+
   return (
-    
     <div className={style.filtros}>
-        <span className={style.filtrosBtn}>Todo</span>
-        <span className={style.filtrosBtn}>Panaderia</span>
-        <span className={style.filtrosBtn}>Pasteleria</span>
-        <span className={style.filtrosBtn}>Tortas</span>
-        <span className={style.filtrosBtn}>Combos</span>
-        <span className={style.filtrosBtn}>Personalizados</span>
+      {["Todo", "Facturas", "Tortas", "Cookies", "Trufas"].map((filtro) => (
+        <span
+          key={filtro}
+          className={obtenerClaseFiltro(filtro)}
+          onClick={() => cambiarFiltro(filtro)}
+        >
+          {filtro}
+        </span>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Filtros
+export default Filtros;

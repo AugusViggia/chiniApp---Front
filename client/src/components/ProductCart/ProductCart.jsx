@@ -3,7 +3,7 @@ import { useProductHandlers } from "../../handlers/productHandlers";
 import DeleteProductModal from '../Modals/DeleteProductModal';
 import style from "./ProductCart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 const ProductCart = ({ product }) => {
   const [isModalEmptyOpen, setModalEmptyOpen] = useState(false);
@@ -49,7 +49,7 @@ const ProductCart = ({ product }) => {
               onClick={() => setModalEmptyOpen(true)}
               className={style.deleteButton}
             >
-              <FontAwesomeIcon icon={faTrash} />
+              <FontAwesomeIcon icon={faTrashCan} className={style.trash} />
             </button>
           )}
 

@@ -27,8 +27,7 @@ const Product = ({ product }) => {
   const totalPrice = product.price * quantity;
   
   return (
-      
-      <div className={style.productContainer}>
+      <div className={style.productContainer} data-category={product.category}>
 
         <div className={style.imageConteiner}>
           {product.images && product.images.length > 0 && (

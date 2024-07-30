@@ -26,31 +26,31 @@ const NavBarHome = () => {
   const NosotrosRef = useRef(null)
 
 
-  const AnimacionGSAP = (RefName, x, y ) => {
-  //AnimacionesGSAP recibe 3 paramentros:
-  //primer parametro: Referencia al elemento del DOM que se va a animar
-  //segundo parametro: valo del desplazamiento en el eje x
-  //tercer parametro: valor de desplazamiento en el eje y
-    gsap.to(RefName.current, {
-      scrollTrigger: {
-        trigger: RefName.current,
-        start: "top 0%",
-        end: "bottom center",
-        scrub: true,
-      },
-      x: x, 
-      y: y,
-    })
+  // const AnimacionGSAP = (RefName, x, y ) => {
+  // //AnimacionesGSAP recibe 3 paramentros:
+  // //primer parametro: Referencia al elemento del DOM que se va a animar
+  // //segundo parametro: valo del desplazamiento en el eje x
+  // //tercer parametro: valor de desplazamiento en el eje y
+  //   gsap.to(RefName.current, {
+  //     scrollTrigger: {
+  //       trigger: RefName.current,
+  //       start: "top 0%",
+  //       end: "bottom center",
+  //       scrub: true,
+  //     },
+  //     x: x, 
+  //     y: y,
+  //   })
 
-  }
+  // }
 
-  useEffect(() => {
+  // useEffect(() => {
       
-    AnimacionGSAP(HomeRef, -1080, -185);
-    AnimacionGSAP(CocinaRef, -590, -275);
-    AnimacionGSAP(  NosotrosRef, -85, -365);
+  //   AnimacionGSAP(HomeRef, -1080, -185);
+  //   AnimacionGSAP(CocinaRef, -590, -275);
+  //   AnimacionGSAP(NosotrosRef, -85, -365);
 
-  }, []);
+  // }, []);
 
   
   return (
@@ -60,11 +60,11 @@ const NavBarHome = () => {
         setIsCartOpen={() => setModalIsOpen(false)}
       />
 
-      <div className={style.cartBox} onClick={() => setModalIsOpen(true)}>
+      {/* <div className={style.cartBox} onClick={() => setModalIsOpen(true)}>
         <div className={style.cart}>
           <FontAwesomeIcon icon={faShoppingCart} />
         </div>
-      </div>
+      </div> */}
 
       <Link to="/" className={style.navLink} ref={HomeRef}>
         <div className={style.btn}>HOME</div>
